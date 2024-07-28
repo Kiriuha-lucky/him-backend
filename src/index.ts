@@ -1,18 +1,30 @@
-export default {
-  /**
-   * An asynchronous register function that runs before
-   * your application is initialized.
-   *
-   * This gives you an opportunity to extend code.
-   */
-  register(/*{ strapi }*/) {},
+import { bot } from './telegram-bot';
 
-  /**
-   * An asynchronous bootstrap function that runs before
-   * your application gets started.
-   *
-   * This gives you an opportunity to set up your data model,
-   * run jobs, or perform some special logic.
-   */
-  bootstrap(/*{ strapi }*/) {},
+let botStart = false;
+
+export default {
+	/**
+	 * An asynchronous register function that runs before
+	 * your application is initialized.
+	 *
+	 * This gives you an opportunity to extend code.
+	 */
+	register(/*{ strapi }*/) {},
+
+	/**
+	 * An asynchronous bootstrap function that runs before
+	 * your application gets started.
+	 *
+	 * This gives you an opportunity to set up your data model,
+	 * run jobs, or perform some special logic.
+	 */
+	bootstrap(/*{ strapi }*/) {
+		if (!botStart) {
+			bot.start()
+				.then(() => (botStart = true))
+				.catch((e) => {
+					console.error(e);
+				});
+		}
+	},
 };

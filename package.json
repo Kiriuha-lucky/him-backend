@@ -1,35 +1,41 @@
 {
-  "name": "him-backend",
-  "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application",
-  "scripts": {
-    "develop": "strapi develop",
-    "start": "strapi start",
-    "build": "strapi build",
-    "strapi": "strapi",
-    "deploy": "strapi deploy"
-  },
-  "dependencies": {
-    "@strapi/plugin-cloud": "4.25.3",
-    "@strapi/plugin-i18n": "4.25.3",
-    "@strapi/plugin-users-permissions": "4.25.3",
-    "@strapi/strapi": "4.25.3",
-    "pg": "8.8.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "5.3.4",
-    "styled-components": "5.3.3"
-  },
-  "author": {
-    "name": "A Strapi developer"
-  },
-  "strapi": {
-    "uuid": "6228be05-a2fb-4d3d-bc37-7b94518263fa"
-  },
-  "engines": {
-    "node": ">=18.0.0 <=20.x.x",
-    "npm": ">=6.0.0"
-  },
-  "license": "MIT"
+	"name": "him-backend",
+	"private": true,
+	"version": "0.1.0",
+	"description": "A Strapi application",
+	"scripts": {
+		"develop": "strapi develop",
+		"start": "strapi start",
+		"build": "strapi build",
+		"strapi": "strapi",
+		"deploy": "strapi deploy"
+	},
+	"dependencies": {
+		"@strapi/plugin-cloud": "4.25.5",
+		"@strapi/plugin-i18n": "4.25.5",
+		"@strapi/plugin-users-permissions": "4.25.5",
+		"@strapi/strapi": "4.25.5",
+		"@types/node-telegram-bot-api": "^0.64.7",
+		"grammy": "^1.27.0",
+		"node-telegram-bot-api": "^0.66.0",
+		"pg": "8.8.0",
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0",
+		"react-router-dom": "5.3.4",
+		"styled-components": "5.3.3"
+	},
+	"author": {
+		"name": "A Strapi developer"
+	},
+	"strapi": {
+		"uuid": "6228be05-a2fb-4d3d-bc37-7b94518263fa"
+	},
+	"engines": {
+		"node": ">=18.0.0 <=20.x.x",
+		"npm": ">=6.0.0"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"prettier": "^3.3.3"
+	}
 }

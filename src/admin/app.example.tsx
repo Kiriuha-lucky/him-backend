@@ -18,7 +18,7 @@ export default {
       // 'pl',
       // 'pt-BR',
       // 'pt',
-      // 'ru',
+      'ru',
       // 'sk',
       // 'sv',
       // 'th',
@@ -29,7 +29,7 @@ export default {
       // 'zh',
     ],
   },
-  bootstrap(app) {
+  bootstrap(app: any) {
     console.log(app);
   },
 };
