@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "metros",
+  "info": {
+    "singularName": "metro",
+    "pluralName": "metros",
+    "displayName": "metro",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::city.city"
+    },
+    "line": {
+      "type": "string",
+      "required": true
+    },
+    "lat": {
+      "type": "float"
+    },
+    "lon": {
+      "type": "float"
+    },
+    "color": {
+      "type": "string"
+    }
+  }
+}

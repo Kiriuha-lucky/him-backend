@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sex_roles",
+  "info": {
+    "singularName": "sex-role",
+    "pluralName": "sex-roles",
+    "displayName": "sex-role"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

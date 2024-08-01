@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orientations",
+  "info": {
+    "singularName": "orientation",
+    "pluralName": "orientations",
+    "displayName": "orientation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

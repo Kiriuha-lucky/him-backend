@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hiv_statuses",
+  "info": {
+    "singularName": "hiv-status",
+    "pluralName": "hiv-statuses",
+    "displayName": "hiv-status"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

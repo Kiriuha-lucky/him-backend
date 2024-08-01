@@ -1,0 +1,25 @@
+{
+	"kind": "collectionType",
+	"collectionName": "zodiac_signs",
+	"info": {
+		"singularName": "zodiac-sign",
+		"pluralName": "zodiac-signs",
+		"displayName": "zodiacSign"
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"pluginOptions": {},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"required": true,
+			"unique": true
+		},
+		"icon": {
+			"allowedTypes": ["images"],
+			"type": "media",
+			"multiple": false
+		}
+	}
+}

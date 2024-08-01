@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_photos",
+  "info": {
+    "singularName": "user-photo",
+    "pluralName": "user-photos",
+    "displayName": "userPhoto"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "private": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "moderate",
+        "resolve",
+        "reject"
+      ],
+      "required": true,
+      "default": "moderate"
+    }
+  }
+}
