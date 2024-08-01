@@ -18,9 +18,9 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           script: |
-            pm2 stop backend
-            eval "$(ssh-agent -s)"
-            ssh-add ~/.ssh/profit
+#            pm2 stop backend
+#            eval "$(ssh-agent -s)"
+#            ssh-add ~/.ssh/profit
             cd ~/him-backend
             git stash
             git pull
@@ -28,4 +28,4 @@ jobs:
             git checkout master
             npm install
             npm run build
-            pm2 restart backend
+#            pm2 restart backend

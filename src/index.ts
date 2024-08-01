@@ -19,12 +19,12 @@ export default {
 	 * run jobs, or perform some special logic.
 	 */
 	bootstrap(/*{ strapi }*/) {
-		if (!botStart) {
-			bot.start()
-				.then(() => (botStart = true))
-				.catch((e) => {
-					console.error(e);
-				});
-		}
+		// if (!botStart) {
+		// 	bot.start()
+		// 		.then(() => (botStart = true))
+		// 		.catch((e) => {
+		// 			console.error(e);
+		// 		});
+		// }
 	},
 };

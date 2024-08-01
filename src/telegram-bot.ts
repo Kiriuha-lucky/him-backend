@@ -1,7 +1,6 @@
 import { env } from '@strapi/utils';
 import { Bot } from 'grammy';
 import { createHash, createHmac } from 'node:crypto';
-import AWS from 'aws-sdk';
 
 import {
 	CITIES,
@@ -78,7 +77,7 @@ const uploadAll = async () => {
 	await uploadGenders();
 };
 
-export const uploadCities = async () => {
+const uploadCities = async () => {
 	let promises = [];
 
 	for (const city of CITIES) {
@@ -98,7 +97,7 @@ export const uploadCities = async () => {
 	await Promise.all(promises);
 };
 
-export const uploadMetro = async () => {
+const uploadMetro = async () => {
 	for (const metro of METROS) {
 		const currentCity = await strapi.entityService.findMany(
 			'api::city.city',
@@ -138,7 +137,7 @@ export const uploadMetro = async () => {
 	}
 };
 
-export const uploadSexRoles = async () => {
+const uploadSexRoles = async () => {
 	let promises = [];
 
 	for (const role of SEX_ROLES) {
@@ -153,7 +152,7 @@ export const uploadSexRoles = async () => {
 	await Promise.all(promises);
 };
 
-export const uploadOrientations = async () => {
+const uploadOrientations = async () => {
 	let promises = [];
 
 	for (const orientation of ORIENTATIONS) {
@@ -168,7 +167,7 @@ export const uploadOrientations = async () => {
 	await Promise.all(promises);
 };
 
-export const uploadZodiacs = async () => {
+const uploadZodiacs = async () => {
 	let promises = [];
 
 	for (const zodiac of ZODIAC_SIGNS) {
@@ -183,7 +182,7 @@ export const uploadZodiacs = async () => {
 	await Promise.all(promises);
 };
 
-export const uploadHiv = async () => {
+const uploadHiv = async () => {
 	let promises = [];
 
 	for (const hiv of HIV) {
@@ -198,7 +197,7 @@ export const uploadHiv = async () => {
 	await Promise.all(promises);
 };
 
-export const uploadGenders = async () => {
+const uploadGenders = async () => {
 	let promises = [];
 
 	for (const gender of GENDERS) {
@@ -212,29 +211,3 @@ export const uploadGenders = async () => {
 	}
 	await Promise.all(promises);
 };
-
-const s3 = new AWS.S3({
-	region: env('AWS_REGION'),
-	accessKeyId: env('AWS_ACCESS_KEY_ID'),
-	secretAccessKey: env('AWS_ACCESS_SECRET'),
-	endpoint: env('AWS_BUCKET_URL'),
-	s3ForcePathStyle: true,
-});
-
-const bucketName: string = env('AWS_BUCKET');
-const objectKey = 'aquarus_fe41215e2b.svg'; // Имя файла в S3
-const expires = 60; // Срок действия ссылки в секундах
-
-const params: AWS.S3.GetObjectRequest & { Expires: number } = {
-	Bucket: bucketName || '',
-	Key: objectKey,
-	Expires: expires,
-};
-
-s3.getSignedUrl('getObject', params, (err, url) => {
-	if (err) {
-		console.error('Ошибка при создании подписанной URL:', err);
-	} else {
-		console.log('Подписанная URL:', url);
-	}
-});
