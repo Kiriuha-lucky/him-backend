@@ -793,43 +793,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
 			'manyToOne',
 			'plugin::users-permissions.role'
 		>;
-		name: Attribute.String & Attribute.Required;
-		gender: Attribute.Relation<
-			'plugin::users-permissions.user',
-			'oneToOne',
-			'api::gender.gender'
-		>;
-		hivStatus: Attribute.Relation<
-			'plugin::users-permissions.user',
-			'oneToOne',
-			'api::hiv-status.hiv-status'
-		>;
-		orientation: Attribute.Relation<
-			'plugin::users-permissions.user',
-			'oneToOne',
-			'api::orientation.orientation'
-		>;
-		sexRole: Attribute.Relation<
-			'plugin::users-permissions.user',
-			'oneToOne',
-			'api::sex-role.sex-role'
-		>;
-		mainPhoto: Attribute.Media<'images'>;
-		city: Attribute.Relation<
-			'plugin::users-permissions.user',
-			'oneToOne',
-			'api::city.city'
-		>;
-		zodiacSign: Attribute.Relation<
-			'plugin::users-permissions.user',
-			'oneToOne',
-			'api::zodiac-sign.zodiac-sign'
-		>;
-		userPhotos: Attribute.Relation<
-			'plugin::users-permissions.user',
-			'oneToMany',
-			'api::user-photo.user-photo'
-		>;
 		createdAt: Attribute.DateTime;
 		updatedAt: Attribute.DateTime;
 		createdBy: Attribute.Relation<
