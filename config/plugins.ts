@@ -3,17 +3,19 @@ export default ({ env }) => ({
 		config: {
 			provider: 'aws-s3',
 			providerOptions: {
-				accessKeyId: env('AWS_ACCESS_KEY_ID'),
-				secretAccessKey: env('AWS_ACCESS_SECRET'),
+				credentials: {
+					accessKeyId: env('AWS_ACCESS_KEY_ID'),
+					secretAccessKey: env('AWS_ACCESS_SECRET'),
+				},
 				region: env('AWS_REGION'),
-				endpoint: env('AWS_BUCKET_URL'),
 				params: {
+					ACL: 'private',
+					signedUrlExpires: env('AWS_SIGNED_URL_EXPIRES', 15 * 60),
 					Bucket: env('AWS_BUCKET'),
 				},
-				sizeLimit: 20 * 1024 * 1024,
+				endpoint: env('AWS_BUCKET_URL'),
 			},
 			actionOptions: {
-				get: {},
 				upload: {},
 				uploadStream: {},
 				delete: {},

@@ -1093,7 +1093,7 @@ export interface ApiZodiacSignZodiacSign extends Schema.CollectionType {
 	};
 	attributes: {
 		name: Attribute.String & Attribute.Required & Attribute.Unique;
-		icon: Attribute.Media<'images'> & Attribute.Required;
+		icon: Attribute.Media<'images'>;
 		createdAt: Attribute.DateTime;
 		updatedAt: Attribute.DateTime;
 		publishedAt: Attribute.DateTime;

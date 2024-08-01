@@ -28,6 +28,7 @@ export default ({ env }) => {
 							'cdn.jsdelivr.net',
 							'strapi.io',
 							's3.amazonaws.com',
+							'https://market-assets.strapi.io',
 						],
 						'media-src': [
 							"'self'",
@@ -35,6 +36,7 @@ export default ({ env }) => {
 							'blob:',
 							'dl.airtable.com',
 							'337acbc3-097fc636-c32e-4acd-ba2c-f619436e64d7.s3.timeweb.cloud',
+							'https://market-assets.strapi.io',
 						],
 						upgradeInsecureRequests: null,
 					},

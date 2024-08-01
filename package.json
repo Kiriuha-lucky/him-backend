@@ -11,12 +11,13 @@
 		"deploy": "strapi deploy"
 	},
 	"dependencies": {
-		"@strapi/plugin-cloud": "4.25.5",
-		"@strapi/plugin-i18n": "4.25.5",
-		"@strapi/plugin-users-permissions": "4.25.5",
-		"@strapi/provider-upload-aws-s3": "^4.25.5",
-		"@strapi/strapi": "4.25.5",
+		"@strapi/plugin-cloud": "4.25.6",
+		"@strapi/plugin-i18n": "4.25.6",
+		"@strapi/plugin-users-permissions": "4.25.6",
+		"@strapi/provider-upload-aws-s3": "^4.25.6",
+		"@strapi/strapi": "4.25.6",
 		"@types/node-telegram-bot-api": "^0.64.7",
+		"aws-sdk": "^2.1664.0",
 		"grammy": "^1.27.0",
 		"node-telegram-bot-api": "^0.66.0",
 		"pg": "8.8.0",
