@@ -1,7 +1,3 @@
-import { bot } from './telegram-bot';
-
-let botStart = false;
-
 export default {
 	/**
 	 * An asynchronous register function that runs before
