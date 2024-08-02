@@ -39,9 +39,11 @@ bot.on('message', async (ctx) => {
 });
 
 export function verifyTelegramData(data: any): boolean {
-	const dataCheckString = Object.entries(sortObjectKeys(data))
-		.map(([key, value]) => `${key}=${value}`)
-		.join('\n');
+	// const dataCheckString = Object.entries(sortObjectKeys(data))
+	// 	.map(([key, value]) => `${key}=${value}`)
+	// 	.join('\n');
+
+	const dataCheckString = data;
 
 	console.log('dataCheckString', dataCheckString);
 
