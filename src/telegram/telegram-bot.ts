@@ -39,7 +39,7 @@ bot.on('message', async (ctx) => {
 });
 
 export function verifyTelegramData(data: any): boolean {
-	const initData = data?.toString();
+	const initData = new URLSearchParams(data);
 	const hash = data?.set('hash');
 	const dataToCheck = [];
 
