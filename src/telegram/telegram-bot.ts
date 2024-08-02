@@ -50,18 +50,20 @@ export function verifyTelegramData(data: any): boolean {
 		}
 	});
 
-	const dataCheckString = data;
 	const botToken = typeof token === 'string' ? token : '';
 
 	const secretKey = createHmac('sha256', botToken)
 		.update('WebAppData')
-		.digest();
+		.digest('hex');
 	const hmac = createHmac('sha256', secretKey)
 		.update(dataToCheck.join('\n'))
 		.digest('hex');
 
+	console.log('dataToCheck:', dataToCheck);
+
 	console.log('secretKey:', secretKey);
 	console.log('hmac', hmac);
+	console.log('hash', hash);
 
 	// @ts-ignore
 	return hmac === hash;
