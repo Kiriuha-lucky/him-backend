@@ -58,24 +58,13 @@ export function verifyTelegramData(data: any): boolean {
 }
 
 function parseDataString(dataString) {
-	return dataString.split('\n').reduce((acc, line) => {
+	return dataString.split('&').reduce((acc, line) => {
 		const [key, value] = line.split('=');
 		if (key && value) {
 			acc[key] = value;
 		}
 		return acc;
 	}, {});
-}
-
-function sortObjectKeys(obj: Record<string, any>): Record<string, any> {
-	// Преобразуем объект в массив пар ключ-значение
-	const entries = Object.entries(obj);
-
-	// Сортируем массив по ключам
-	const sortedEntries = entries.sort((a, b) => a[0].localeCompare(b[0]));
-
-	// Создаем новый объект с отсортированными ключами
-	return Object.fromEntries(sortedEntries);
 }
 
 const uploadAll = async () => {
