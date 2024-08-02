@@ -5,8 +5,8 @@ import { verifyTelegramData } from '../../../telegram/telegram-bot';
 
 export default {
 	auth: async (ctx, next) => {
-		console.log(ctx?.request?.body);
+		console.log(ctx?.request?.body?.initData);
 
-		console.log(verifyTelegramData(ctx?.request?.body));
+		console.log(verifyTelegramData(ctx?.request?.body?.initData));
 	},
 };
