@@ -1,0 +1,5 @@
+/**
+ * telegram service
+ */
+
+export default () => ({});
