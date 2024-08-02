@@ -51,10 +51,11 @@ export function verifyTelegramData(data: any): boolean {
 	});
 
 	const botToken = typeof token === 'string' ? token : '';
+	console.log('botToken:', botToken);
 
-	const secretKey = createHmac('sha256', botToken)
-		.update('WebAppData')
-		.digest('hex');
+	const secretKey = createHmac('sha256', 'WebAppData')
+		.update(botToken)
+		.digest();
 	const hmac = createHmac('sha256', secretKey)
 		.update(dataToCheck.join('\n'))
 		.digest('hex');
