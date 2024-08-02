@@ -46,7 +46,7 @@ export function verifyTelegramData(data: any): boolean {
 
 	const secretKey = createHmac('sha256', botToken)
 		.update('WebAppData')
-		.digest();
+		.digest('hex');
 	const hmac = createHmac('sha256', secretKey)
 		.update(dataCheckString)
 		.digest('hex');
