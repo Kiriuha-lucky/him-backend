@@ -39,34 +39,32 @@ bot.on('message', async (ctx) => {
 });
 
 export function verifyTelegramData(data: any): boolean {
-	const dataString = parseDataString(data);
+	const initData = data?.toString();
+	const hash = data?.set('hash');
+	const dataToCheck = [];
+
+	initData.sort();
+	initData.forEach((val, key) => {
+		if (key !== 'hash') {
+			dataToCheck.push(`${key}=${val}`);
+		}
+	});
 
 	const dataCheckString = data;
 	const botToken = typeof token === 'string' ? token : '';
 
 	const secretKey = createHmac('sha256', botToken)
 		.update('WebAppData')
-		.digest('hex');
+		.digest();
 	const hmac = createHmac('sha256', secretKey)
-		.update(dataCheckString)
+		.update(dataToCheck.join('\n'))
 		.digest('hex');
 
 	console.log('secretKey:', secretKey);
 	console.log('hmac', hmac);
 
-	console.log(dataString, dataString?.hash);
 	// @ts-ignore
-	return hmac === dataString?.hash;
-}
-
-function parseDataString(dataString) {
-	return dataString.split('&').reduce((acc, line) => {
-		const [key, value] = line.split('=');
-		if (key && value) {
-			acc[key] = value;
-		}
-		return acc;
-	}, {});
+	return hmac === hash;
 }
 
 const uploadAll = async () => {
