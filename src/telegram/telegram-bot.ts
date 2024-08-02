@@ -38,12 +38,14 @@ bot.on('message', async (ctx) => {
 	await bot.api.sendMessage(chatId, 'Received your message: ' + messageText);
 });
 
-function verifyTelegramData(data: any, botToken: string): boolean {
+export function verifyTelegramData(data: any): boolean {
 	const dataCheckString = Object.entries(sortObjectKeys(data))
 		.map(([key, value]) => `${key}=${value}`)
 		.join('\n');
 
 	console.log('dataCheckString', dataCheckString);
+
+	const botToken = typeof token === 'string' ? token : '';
 
 	const secretKey = createHash('sha256').update(botToken).digest('hex');
 	console.log('secretKey', secretKey);
