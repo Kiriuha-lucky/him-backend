@@ -21,8 +21,8 @@ export default {
 		if (!botStart) {
 			bot.start()
 				.then(() => (botStart = true))
-				.catch((error) => {
-					console.error(error);
+				.catch((e) => {
+					console.error(e);
 				});
 		}
 	},
