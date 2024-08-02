@@ -4,6 +4,6 @@
 
 export default {
 	auth: async (ctx, next) => {
-		console.log(JSON.parse(ctx?.request?.body));
+		console.log(ctx?.request?.body);
 	},
 };
