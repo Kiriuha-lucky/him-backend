@@ -20,7 +20,7 @@ jobs:
           script: |
             pm2 stop backend
             eval "$(ssh-agent -s)"
-            ssh-add ~/.ssh/profit
+            ssh-add ~/.ssh/id_ed25519
             cd ~/him-backend
             git stash
             git pull
