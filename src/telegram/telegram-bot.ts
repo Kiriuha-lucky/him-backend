@@ -51,7 +51,9 @@ export function verifyTelegramData(data: any): boolean {
 		.update(dataCheckString)
 		.digest('hex');
 
-	console.log('dataCheckString', dataCheckString);
+	console.log('secretKey:', secretKey);
+	console.log('hmac', hmac);
+
 	console.log(dataString, dataString?.hash);
 	// @ts-ignore
 	return hmac === dataString?.hash;
