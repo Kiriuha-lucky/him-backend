@@ -39,25 +39,32 @@ bot.on('message', async (ctx) => {
 });
 
 export function verifyTelegramData(data: any): boolean {
-	// const dataCheckString = Object.entries(sortObjectKeys(data))
-	// 	.map(([key, value]) => `${key}=${value}`)
-	// 	.join('\n');
+	const dataString = parseDataString(data);
 
 	const dataCheckString = data;
+	const botToken = typeof token === 'string' ? token : '';
+
+	const secretKey = createHmac('sha256', botToken)
+		.update('WebAppData')
+		.digest();
+	const hmac = createHmac('sha256', secretKey)
+		.update(dataCheckString)
+		.digest('hex');
 
 	console.log('dataCheckString', dataCheckString);
 
-	const botToken = typeof token === 'string' ? token : '';
+	// @ts-ignore
+	return hmac === dataString?.hash;
+}
 
-	const secretKey = createHash('sha256').update(botToken).digest('hex');
-	console.log('secretKey', secretKey);
-
-	const hmac = createHmac('sha256', secretKey);
-	hmac.update(dataCheckString);
-	const calculatedHash = hmac.digest('hex');
-	console.log('calculatedHash', calculatedHash);
-
-	return calculatedHash === data.hash;
+function parseDataString(dataString) {
+	return dataString.split('\n').reduce((acc, line) => {
+		const [key, value] = line.split('=');
+		if (key && value) {
+			acc[key] = value;
+		}
+		return acc;
+	}, {});
 }
 
 function sortObjectKeys(obj: Record<string, any>): Record<string, any> {
